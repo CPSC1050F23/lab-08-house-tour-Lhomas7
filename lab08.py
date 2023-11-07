@@ -57,32 +57,32 @@ class AdventureMap:
         adventure_map.add_room(Room("Bedroom", "A lavished bed adorns the center of this room, with long curtains, beautiful rugs, and gilded furniture acting as little details to truly make this a great bedroom.", ["Study", "Trophy Room"]))
         print(adventure_map.get_room('Study'))
         play = True
-        user_room_choice = 'Study'
+        user_room_choice = 'study'
         while play:
             print("Please choose an exit:")
             user_choice = input().strip().lower()
             if user_choice == 'exit':
                 print("Exiting the house out of the nearest window... thanks for the tour!")
                 break
-            if user_room_choice == 'Study' and (user_choice.lower().strip() == "kitchen" or user_choice.lower().strip() == "library" or user_choice.lower().strip() == 'bedroom'):
+            if user_room_choice == 'study' and (user_choice.lower().strip() == "kitchen" or user_choice.lower().strip() == "library" or user_choice.lower().strip() == 'bedroom'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Guest Room' and (user_choice.lower().strip() == 'kitchen'):
+            elif user_room_choice == 'guest room' and (user_choice.lower().strip() == 'kitchen'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Library' and (user_choice.lower().strip() == 'Holodeck' or user_choice.lower().strip() == 'trophy room' or user_choice.lower().strip() == 'study'):
+            elif user_room_choice == 'library' and (user_choice.lower().strip() == 'holodeck' or user_choice.lower().strip() == 'trophy room' or user_choice.lower().strip() == 'study'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Kitchen' and (user_choice.lower().strip() == 'study' or user_choice.lower().strip() == 'guest room'):
+            elif user_room_choice == 'kitchen' and (user_choice.lower().strip() == 'study' or user_choice.lower().strip() == 'guest room'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Holodeck' and (user_choice.lower().strip() == 'library'):
+            elif user_room_choice == 'holodeck' and (user_choice.lower().strip() == 'library'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Trophy Room' and (user_choice.lower().strip() == 'bedroom' or user_choice.lower().strip() == 'library'):
+            elif user_room_choice == 'trophy room' and (user_choice.lower().strip() == 'bedroom' or user_choice.lower().strip() == 'library'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
-            elif user_room_choice == 'Bedroom' and (user_choice.lower().strip() == 'study' or user_choice.lower().strip() == 'trophy room'):
+            elif user_room_choice == 'bedroom' and (user_choice.lower().strip() == 'study' or user_choice.lower().strip() == 'trophy room'):
                 print(adventure_map.get_room(user_choice))
                 user_room_choice = user_choice
             else:
