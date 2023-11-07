@@ -1,10 +1,30 @@
+"""
+Author:         Landon Thomas
+Date:           11/7/23
+Assignment:     Lab 08
+Course:         CPSC1051
+Lab Section:    004
+
+CODE DESCRIPTION:
+This program models a person's text navigation through a fictional house.
+The house has rooms stored in a dictionary that is modified and displayed by use of classes.
+The user will select which room they would like to enter and the program will validate that 
+the room is a potential exit, and will also take that user to that room.
+"""
+
+
+
+
+
+#class created to display an invalid exit
 class ExitNotFoundError:
     def __init__(self, message = 'room not found'):
         self.message = message
     def __str__(self,exit):
         return f"{exit} -> {self.message}"
-
+#define the room class to hold a room's description, name, and exits
 class Room:
+    #initializes code, gets the name, description, and exits, and also returns the room in a string.
     def __init__(self, name = '', description = '', exits = []):
         self.name = name
         self.description = description
@@ -25,8 +45,9 @@ class Room:
         room_des = f"{self.name}: {self.description}\n\nExits:\n{self.str_exit}"
         return room_des
         
-
+#define the adventuremap class that holds a dictionary of all rooms in the house
 class AdventureMap:
+    #initializes the map, defines how to add a room and go to a room in the map.
     def __init__(self, room = Room(), error = ExitNotFoundError()):
         self.map = {}
         self.error = error
@@ -43,9 +64,8 @@ class AdventureMap:
                 return self.map[key]
                 user_room = key
                 count += 1
-        if count == 0:
-            raise Exception(self.error.__str__(user_room))
     def main():
+        #how the code will be displaed on the screen
         adventure_map = AdventureMap()
         print("\nWelcome to the Adkins house! Entering the study room. To leave the house, please type exit to jump out of the nearest window.\n")
         adventure_map.add_room(Room("Guest Room", "A room filled with numerous torture devices. Who said anything about welcome guests?", ['Kitchen']))
@@ -88,12 +108,8 @@ class AdventureMap:
             else:
                 print(f"{ExitNotFoundError().__str__(user_choice)}\n")
 
-
+#run the code through main
 if __name__ == "__main__":
     AdventureMap.main()
 
             
-
-#print(f"Invalid room: {e}")
-
-#print("Exiting the house out of the nearest window... thanks for the tour!")
